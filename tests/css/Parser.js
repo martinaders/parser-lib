@@ -1517,6 +1517,30 @@
             Assert.isTrue(true);  //just don't want an error
         },
 
+        testMSViewport: function(){
+            var parser = new Parser({ strict: true});
+            var result = parser.parse("@-ms-viewport { width: 397px; }");
+            Assert.isTrue(true);
+        },
+
+        testMSViewportInsideMediaQuery: function(){
+            var parser = new Parser({ strict: true});
+            var result = parser.parse("@media screen and (max-width: 400px) { @-ms-viewport { width: 320px; }}");
+            Assert.isTrue(true);
+        },
+
+        testMSViewportInsideDeviceWidth: function(){
+            var parser = new Parser({ strict: true});
+            var result = parser.parse("@-ms-viewport { width: device-width; }");
+            Assert.isTrue(true);
+        },
+
+        testMSViewportInsideDeviceHeight: function(){
+            var parser = new Parser({ strict: true});
+            var result = parser.parse("@-ms-viewport { width: device-height; }");
+            Assert.isTrue(true);
+        },
+
         testViewportEventFires: function(){
             var parser = new Parser({ strict:true}),
                 calledStart = false,
